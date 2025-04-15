@@ -1,0 +1,21 @@
+<h3>{{ listName() }}</h3>
+<ul>
+  @for (character of characters(); track character.id) {
+    @if (character.power > 500) {
+      <li>
+        <span>{{ character.name }}</span>
+        <strong
+          [class.text-danger]="character.power > 9000"
+          [class.text-primary]="character.power < 9000"
+          class="mx-2"
+        >
+          ({{ character.power }})
+        </strong>
+        <!-- Otra forma de crear las clases seria con ngClass, habria que importarla en el archivo .ts -->
+        <!-- <strong [ngClass]="powerClasses()" class="mx-2"> ({{character.power}})</strong> -->
+      </li>
+    } @else {
+      <li><strong>Yamcha fuera</strong></li>
+    }
+  }
+</ul>
